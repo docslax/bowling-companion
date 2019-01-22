@@ -13,7 +13,6 @@ import ca.josephroque.bowlingcompanion.statistics.impl.overall.HighSingleStatist
 import ca.josephroque.bowlingcompanion.statistics.impl.overall.NumberOfGamesStatistic
 import ca.josephroque.bowlingcompanion.statistics.impl.overall.TotalPinfallStatistic
 import ca.josephroque.bowlingcompanion.statistics.impl.pinsleftondeck.AveragePinsLeftStatistic
-import ca.josephroque.bowlingcompanion.utils.DateUtils
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async
@@ -33,8 +32,6 @@ class GameUnit(
     val gameOrdinal: Int,
     parcel: Parcel? = null
 ) : StatisticsUnit(parcel) {
-
-    val prettySeriesDate = DateUtils.dateToPretty(seriesDate)
 
     override val name = "Game $gameOrdinal"
     override val excludedCategories = setOf(StatisticsCategory.Average, StatisticsCategory.MatchPlay, StatisticsCategory.Series)

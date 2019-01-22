@@ -11,6 +11,7 @@ import android.widget.TextView
 import ca.josephroque.bowlingcompanion.R
 import ca.josephroque.bowlingcompanion.common.adapters.BaseRecyclerViewAdapter
 import ca.josephroque.bowlingcompanion.teams.Team
+import ca.josephroque.bowlingcompanion.utils.pretty
 
 /**
  * Copyright (C) 2018 Joseph Roque
@@ -90,7 +91,7 @@ class TeamMembersRecyclerViewAdapter(
             }
 
             if (item.series != null) {
-                tvSeriesName.text = item.series.prettyDate
+                tvSeriesName.text = item.series.date.pretty
                 tvSeriesName.setTextColor(ContextCompat.getColor(context, R.color.primaryBlackText))
             } else if (item.league != null) {
                 tvSeriesName.setText(R.string.create_new_series)

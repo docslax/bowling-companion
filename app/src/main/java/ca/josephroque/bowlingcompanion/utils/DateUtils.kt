@@ -1,8 +1,9 @@
 package ca.josephroque.bowlingcompanion.utils
 
+import android.content.Context
+import ca.josephroque.bowlingcompanion.R
 import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
+import java.util.*
 
 /**
  * Copyright (C) 2018 Joseph Roque
@@ -10,6 +11,38 @@ import java.util.Locale
  * Utility methods for date manipulation and display.
  */
 object DateUtils {
+
+    fun init(context: Context) {
+        Strings.yesterday = context.resources.getString(R.string.yesterday)
+        Strings.today = context.resources.getString(R.string.today)
+        Strings.tomorrow = context.resources.getString(R.string.tomorrow)
+    }
+
+    // MARK: String resources
+
+    object Strings {
+        lateinit var today: String
+        lateinit var yesterday: String
+        lateinit var tomorrow: String
+    }
+
+    // MARK: Dates
+
+    object Calendars {
+        var today: Calendar = Calendar.getInstance().apply {
+            setToMidnight()
+        }
+
+        var yesterday: Calendar = Calendar.getInstance().apply {
+            add(Calendar.DAY_OF_MONTH, -1)
+            setToMidnight()
+        }
+
+        var tomorrow: Calendar = Calendar.getInstance().apply {
+            add(Calendar.DAY_OF_MONTH, 1)
+            setToMidnight()
+        }
+    }
 
     // MARK: DateUtils
 
@@ -42,7 +75,20 @@ object DateUtils {
      * @return prettier format of string with full month name
      */
     fun dateToPretty(date: Date): String {
-        val formatter = SimpleDateFormat("MMMM dd, yyyy", Locale.CANADA)
+        val yesterday = Calendars.yesterday.time
+        val today = Calendars.today.time
+        val tomorrow = Calendars.tomorrow.time
+        val twoDaysAway = Calendars.tomorrow.apply { add(Calendar.DAY_OF_MONTH, 1) }.time
+
+        if (yesterday <= date && today > date) {
+            return Strings.yesterday
+        } else if (today <= date && tomorrow > date) {
+            return Strings.today
+        } else if (tomorrow <= date && twoDaysAway > date) {
+            return Strings.tomorrow
+        }
+
+        val formatter = SimpleDateFormat("MMMM d, yyyy", Locale.CANADA)
         return formatter.format(date)
     }
 
@@ -57,3 +103,22 @@ object DateUtils {
         return formatter.format(date)
     }
 }
+
+// MARK: Convenience functions
+
+fun Calendar.setToMidnight() {
+    set(get(Calendar.YEAR), get(Calendar.MONTH), get(Calendar.DAY_OF_MONTH), 0, 0, 0)
+    set(Calendar.MILLISECOND, 0)
+}
+
+val Date.pretty: String
+    get() = DateUtils.dateToPretty(this)
+
+val Date.short: String
+    get() = DateUtils.dateToShort(this)
+
+val Date.forSeriesColumn: String
+    get() = DateUtils.dateToSeriesDate(this)
+
+val String.fromSeriesColumn: Date
+    get() = DateUtils.seriesDateToDate(this)

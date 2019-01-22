@@ -9,7 +9,7 @@ import ca.josephroque.bowlingcompanion.series.Series
 import ca.josephroque.bowlingcompanion.statistics.StatisticsCategory
 import ca.josephroque.bowlingcompanion.statistics.immutable.StatSeries
 import ca.josephroque.bowlingcompanion.statistics.impl.general.GameNameStatistic
-import ca.josephroque.bowlingcompanion.utils.DateUtils
+import ca.josephroque.bowlingcompanion.utils.pretty
 import kotlinx.coroutines.experimental.Deferred
 import java.util.Date
 
@@ -29,7 +29,7 @@ class SeriesUnit(
     // MARK: Overrides
 
     override val name: String
-        get() = DateUtils.dateToPretty(seriesDate)
+        get() = seriesDate.pretty
     override val excludedCategories: Set<StatisticsCategory> = setOf(StatisticsCategory.Average, StatisticsCategory.Series)
     override val excludedStatisticIds: Set<Int> = setOf(GameNameStatistic.Id)
     override val canShowGraphs = false

@@ -9,6 +9,7 @@ import ca.josephroque.bowlingcompanion.statistics.StringStatistic
 import ca.josephroque.bowlingcompanion.statistics.unit.GameUnit
 import ca.josephroque.bowlingcompanion.statistics.unit.SeriesUnit
 import ca.josephroque.bowlingcompanion.statistics.unit.StatisticsUnit
+import ca.josephroque.bowlingcompanion.utils.pretty
 
 /**
  * Copyright (C) 2018 Joseph Roque
@@ -22,7 +23,7 @@ class SeriesNameStatistic(override var value: String = "") : StringStatistic {
     /** @Override */
     override fun modify(unit: StatisticsUnit) {
         when (unit) {
-            is GameUnit -> value = unit.prettySeriesDate
+            is GameUnit -> value = unit.seriesDate.pretty
             is SeriesUnit -> value = unit.name
         }
     }

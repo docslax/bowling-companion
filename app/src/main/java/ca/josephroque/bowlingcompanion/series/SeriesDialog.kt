@@ -18,7 +18,7 @@ import ca.josephroque.bowlingcompanion.common.fragments.BaseDialogFragment
 import ca.josephroque.bowlingcompanion.common.fragments.DatePickerFragment
 import ca.josephroque.bowlingcompanion.utils.Analytics
 import ca.josephroque.bowlingcompanion.utils.Color
-import ca.josephroque.bowlingcompanion.utils.DateUtils
+import ca.josephroque.bowlingcompanion.utils.pretty
 import ca.josephroque.bowlingcompanion.utils.safeLet
 import kotlinx.android.synthetic.main.dialog_series.tv_date as dateText
 import kotlinx.android.synthetic.main.dialog_series.toolbar_series as seriesToolbar
@@ -63,7 +63,7 @@ class SeriesDialog : BaseDialogFragment(), DatePickerDialog.OnDateSetListener {
             R.id.btn_delete -> {
                 safeLet(context, series) { context, series ->
                     AlertDialog.Builder(context)
-                            .setTitle(String.format(context.resources.getString(R.string.query_delete_item), series.prettyDate))
+                            .setTitle(String.format(context.resources.getString(R.string.query_delete_item), series.date.pretty))
                             .setMessage(R.string.dialog_delete_item_message)
                             .setPositiveButton(R.string.delete) { _, _ ->
                                 delegate?.onDeleteSeries(series)
@@ -110,7 +110,7 @@ class SeriesDialog : BaseDialogFragment(), DatePickerDialog.OnDateSetListener {
         super.onStart()
         dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
-        currentDate?.let { dateText.text = DateUtils.dateToPretty(it) }
+        currentDate?.let { dateText.text = it.pretty }
         updateSaveButton()
     }
 
@@ -179,7 +179,7 @@ class SeriesDialog : BaseDialogFragment(), DatePickerDialog.OnDateSetListener {
 
             if (error != null) {
                 error.show(context)
-                dateText.text = oldSeries.prettyDate
+                dateText.text = oldSeries.date.pretty
             } else if (newSeries != null) {
                 dismiss()
                 delegate?.onFinishSeries(newSeries)
@@ -208,7 +208,7 @@ class SeriesDialog : BaseDialogFragment(), DatePickerDialog.OnDateSetListener {
         calendar.set(Calendar.MONTH, month)
         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
         currentDate = calendar.time
-        dateText.text = DateUtils.dateToPretty(currentDate!!)
+        dateText.text = currentDate!!.pretty
     }
 
     // MARK: SeriesDialogDelegate

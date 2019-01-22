@@ -17,6 +17,7 @@ import ca.josephroque.bowlingcompanion.statistics.unit.SeriesUnit
 import ca.josephroque.bowlingcompanion.statistics.unit.StatisticsUnit
 import ca.josephroque.bowlingcompanion.statistics.unit.TeamUnit
 import ca.josephroque.bowlingcompanion.teams.Team
+import ca.josephroque.bowlingcompanion.utils.pretty
 
 /**
  * Copyright (C) 2018 Joseph Roque
@@ -88,7 +89,7 @@ sealed class StatisticsProvider : IIdentifiable, KParcelable {
         private constructor(p: Parcel): this(p.readParcelable<Series>(Series::class.java.classLoader)!!)
 
         override val id = series.id.and(0xC00000000000000L)
-        override val name = series.prettyDate
+        override val name = series.date.pretty
         override val typeName = R.string.series
         override val canShowGraphs = false
     }

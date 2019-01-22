@@ -14,6 +14,7 @@ import ca.josephroque.bowlingcompanion.common.adapters.BaseRecyclerViewAdapter
 import ca.josephroque.bowlingcompanion.matchplay.MatchPlayResult
 import ca.josephroque.bowlingcompanion.leagues.League
 import ca.josephroque.bowlingcompanion.settings.Settings
+import ca.josephroque.bowlingcompanion.utils.pretty
 
 /**
  * Copyright (C) 2018 Joseph Roque
@@ -130,7 +131,7 @@ class SeriesRecyclerViewAdapter(
             val context = itemView.context
             val seriesTotal = item.scores.sum()
 
-            tvDate?.text = item.prettyDate
+            tvDate?.text = item.date.pretty
             tvTotal?.text = seriesTotal.toString()
 
             if (shouldHighlightSeries(seriesTotal, item.numberOfGames)) {
@@ -156,7 +157,7 @@ class SeriesRecyclerViewAdapter(
             val context = itemView.context
             val seriesTotal = item.scores.sum()
 
-            tvDate?.text = item.prettyDate
+            tvDate?.text = item.date.pretty
             tvTotal?.text = seriesTotal.toString()
 
             if (shouldHighlightSeries(seriesTotal, item.numberOfGames)) {
@@ -229,7 +230,7 @@ class SeriesRecyclerViewAdapter(
 
             tvDeleted?.text = String.format(
                     context.resources.getString(R.string.query_delete_item),
-                    getItemAt(adapterPosition).prettyDate
+                    getItemAt(adapterPosition).date.pretty
             )
 
             val deletedItemListener = View.OnClickListener {

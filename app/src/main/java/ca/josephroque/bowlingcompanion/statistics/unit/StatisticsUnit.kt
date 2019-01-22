@@ -15,7 +15,7 @@ import ca.josephroque.bowlingcompanion.statistics.impl.average.PerGameAverageSta
 import ca.josephroque.bowlingcompanion.statistics.impl.series.HighSeriesStatistic
 import ca.josephroque.bowlingcompanion.statistics.list.StatisticListItem
 import ca.josephroque.bowlingcompanion.utils.Analytics
-import ca.josephroque.bowlingcompanion.utils.DateUtils
+import ca.josephroque.bowlingcompanion.utils.short
 import com.github.mikephil.charting.data.Entry
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.Deferred
@@ -130,7 +130,7 @@ abstract class StatisticsUnit(initialSeries: List<StatSeries>? = null, initialSt
 
             fun updateGraph() {
                 addGraphEntries(graphData, xPos, statistic)
-                graphLabels.add(DateUtils.dateToShort(lastDate))
+                graphLabels.add(lastDate.short)
                 if (!accumulative) statistic.zero()
                 xPos++
             }

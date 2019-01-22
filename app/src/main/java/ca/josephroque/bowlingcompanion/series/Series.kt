@@ -21,7 +21,8 @@ import ca.josephroque.bowlingcompanion.database.DatabaseManager
 import ca.josephroque.bowlingcompanion.games.Game
 import ca.josephroque.bowlingcompanion.leagues.League
 import ca.josephroque.bowlingcompanion.utils.BCError
-import ca.josephroque.bowlingcompanion.utils.DateUtils
+import ca.josephroque.bowlingcompanion.utils.forSeriesColumn
+import ca.josephroque.bowlingcompanion.utils.fromSeriesColumn
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async
@@ -45,9 +46,6 @@ class Series(
     private var _isDeleted: Boolean = false
     override val isDeleted: Boolean
         get() = _isDeleted
-
-    val prettyDate: String
-        get() = DateUtils.dateToPretty(date)
 
     val total: Int
         get() = scores.sum()
@@ -178,7 +176,7 @@ class Series(
                 val database = openDatabase ?: DatabaseManager.getWritableDatabase(context).await()
                 val inTransaction = openDatabase != null && openDatabase.inTransaction()
                 var values = ContentValues().apply {
-                    put(SeriesEntry.COLUMN_SERIES_DATE, DateUtils.dateToSeriesDate(date))
+                    put(SeriesEntry.COLUMN_SERIES_DATE, date.forSeriesColumn)
                     put(SeriesEntry.COLUMN_LEAGUE_ID, league.id)
                 }
 
@@ -253,7 +251,7 @@ class Series(
                 val database = openDatabase ?: DatabaseManager.getWritableDatabase(context).await()
                 val inTransaction = openDatabase != null && openDatabase.inTransaction()
                 val values = ContentValues().apply {
-                    put(SeriesEntry.COLUMN_SERIES_DATE, DateUtils.dateToSeriesDate(date))
+                    put(SeriesEntry.COLUMN_SERIES_DATE, date.forSeriesColumn)
                 }
 
                 if (!inTransaction) {
@@ -299,7 +297,7 @@ class Series(
 
                 fun buildSeriesFromCursor(cursor: Cursor): Series {
                     val id = cursor.getLong(cursor.getColumnIndex("sid"))
-                    val seriesDate = DateUtils.seriesDateToDate(cursor.getString(cursor.getColumnIndex(SeriesEntry.COLUMN_SERIES_DATE)))
+                    val seriesDate = cursor.getString(cursor.getColumnIndex(SeriesEntry.COLUMN_SERIES_DATE)).fromSeriesColumn
                     return Series(
                             league,
                             id,

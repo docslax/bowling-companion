@@ -23,7 +23,7 @@ import ca.josephroque.bowlingcompanion.leagues.League
 import ca.josephroque.bowlingcompanion.matchplay.MatchPlayResult
 import ca.josephroque.bowlingcompanion.scoring.Fouls
 import ca.josephroque.bowlingcompanion.settings.Settings
-import ca.josephroque.bowlingcompanion.utils.DateUtils
+import ca.josephroque.bowlingcompanion.utils.fromSeriesColumn
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async
@@ -187,7 +187,7 @@ class StatSeries(
                     return StatSeries(
                             id = cursor.getLong(cursor.getColumnIndex("sid")),
                             games = games,
-                            date = DateUtils.seriesDateToDate(cursor.getString(cursor.getColumnIndex(SeriesEntry.COLUMN_SERIES_DATE)))
+                            date = cursor.getString(cursor.getColumnIndex(SeriesEntry.COLUMN_SERIES_DATE)).fromSeriesColumn
                     )
                 }
 
