@@ -267,6 +267,8 @@ class NavigationActivity : BaseActivity(),
 
     // MARK: RootFragmentListener
 
+    override val numberOfRootFragments = BottomTab.available.size
+
     override fun getRootFragment(index: Int): Fragment {
         val tab = BottomTab.fromInt(index)
         val fragmentName: String
@@ -281,7 +283,7 @@ class NavigationActivity : BaseActivity(),
 
     // MARK: TransactionListener
 
-    override fun onFragmentTransaction(fragment: Fragment?, transactionType: FragNavController.TransactionType?) {
+    override fun onFragmentTransaction(fragment: Fragment?, transactionType: FragNavController.TransactionType) {
         handleFragmentChange(fragment, transactionType)
     }
 
@@ -432,11 +434,12 @@ class NavigationActivity : BaseActivity(),
     }
 
     private fun setupFragNavController(savedInstanceState: Bundle?) {
-        val builder = FragNavController.newBuilder(savedInstanceState, supportFragmentManager, R.id.fragment_container)
-                .rootFragmentListener(this@NavigationActivity, BottomTab.available.size)
-                .transactionListener(this@NavigationActivity)
-        // FIXME: look into .fragmentHideStrategy(FragNavController.HIDE), .eager(true)
-        fragNavController = builder.build()
+        fragNavController = FragNavController(supportFragmentManager, R.id.fragment_container).apply {
+            rootFragmentListener = this@NavigationActivity
+            transactionListener = this@NavigationActivity
+        }
+
+        fragNavController?.initialize(BottomTab.available.first().ordinal, savedInstanceState)
     }
 
     private fun setupAdView() {

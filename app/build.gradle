@@ -75,7 +75,7 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.2'
     implementation 'android.arch.lifecycle:extensions:1.1.1'
 
-    implementation 'com.ncapdevi:frag-nav:2.4.0' // https://github.com/ncapdevi/FragNav
+    implementation 'com.ncapdevi:frag-nav:3.0.0' // https://github.com/ncapdevi/FragNav
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3' // https://github.com/PhilJay/MPAndroidChart
 
     implementation 'com.mixpanel.android:mixpanel-android:5.4.4' // https://github.com/mixpanel/mixpanel-android
