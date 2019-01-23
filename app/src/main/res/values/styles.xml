@@ -3,11 +3,12 @@
 
     <!-- App Theme -->
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+    <style name="AppTheme" parent="Theme.MaterialComponents">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="preferenceTheme">@style/SettingTheme</item>
         <item name="android:windowBackground">@color/colorBackground</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -60,6 +61,7 @@
         <item name="android:minHeight">?android:attr/actionBarSize</item>
         <item name="android:background">?android:attr/colorPrimary</item>
         <item name="android:elevation">@dimen/base_elevation</item>
+        <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="layout_constraintTop_toTopOf">parent</item>
         <item name="layout_constraintLeft_toLeftOf">parent</item>
         <item name="layout_constraintRight_toRightOf">parent</item>
@@ -78,6 +80,7 @@
         <item name="tabGravity">fill</item>
         <item name="tabTextColor">@color/secondaryWhiteText</item>
         <item name="tabSelectedTextColor">@color/primaryWhiteText</item>
+        <item name="tabIndicatorColor">@color/primaryWhiteText</item>
     </style>
 
     <style name="ViewPager">
@@ -318,8 +321,13 @@
 
     <!-- Settings -->
 
-    <style name="SettingTheme" parent="AppTheme">
+    <style name="SettingTheme" parent="PreferenceThemeOverlay.v14.Material">
         <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:textColorPrimary">@color/primaryBlackText</item>
+        <item name="android:textColorSecondary">@color/secondaryBlackText</item>
+        <item name="windowActionBar">false</item>
     </style>
 
 </resources>
