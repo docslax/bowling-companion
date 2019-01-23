@@ -1,9 +1,9 @@
 package ca.josephroque.bowlingcompanion
 
 import android.os.Bundle
-import android.support.design.widget.TabLayout
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+import com.google.android.material.tabs.TabLayout
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -199,16 +199,16 @@ class LeagueEventTabbedFragment : TabbedFragment(),
 
         override fun getCount() = tabCount
 
-        override fun getItem(position: Int): BaseFragment? {
+        override fun getItem(position: Int): BaseFragment {
             bowler?.let {
                 return when (Tab.fromInt(position)) {
                     Tab.Leagues -> LeagueListFragment.newInstance(bowler, LeagueListFragment.Companion.Show.Leagues)
                     Tab.Events -> LeagueListFragment.newInstance(bowler, LeagueListFragment.Companion.Show.Events)
-                    else -> null
+                    else -> throw Error("LeagueEventPagerAdapter invalid position: $position")
                 }
             }
 
-            return null
+            throw Error("LeagueEventPagerAdapter bowler is null.")
         }
     }
 }

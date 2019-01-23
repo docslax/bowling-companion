@@ -4,7 +4,7 @@
     style="@style/Dialog"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         style="@style/Toolbar"
         android:id="@+id/toolbar_transfer" />
 

@@ -3,8 +3,8 @@ package ca.josephroque.bowlingcompanion.bowlers
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
-import android.support.v7.app.AlertDialog
+import androidx.fragment.app.DialogFragment
+import androidx.appcompat.app.AlertDialog
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -84,7 +84,7 @@ class BowlerDialog : BaseDialogFragment() {
         return dialog
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         val parentFragment = parentFragment as? BowlerDialogDelegate ?: throw RuntimeException("${parentFragment!!} must implement BowlerDialogDelegate")
         delegate = parentFragment
@@ -97,7 +97,7 @@ class BowlerDialog : BaseDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
         // Requesting input focus and showing keyboard
         nameInput.requestFocus()

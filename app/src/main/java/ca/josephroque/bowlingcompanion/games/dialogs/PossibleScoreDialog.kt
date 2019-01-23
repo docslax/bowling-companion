@@ -1,7 +1,7 @@
 package ca.josephroque.bowlingcompanion.games.dialogs
 
 import android.content.Context
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import ca.josephroque.bowlingcompanion.R
 import ca.josephroque.bowlingcompanion.games.Frame
 import ca.josephroque.bowlingcompanion.games.Game

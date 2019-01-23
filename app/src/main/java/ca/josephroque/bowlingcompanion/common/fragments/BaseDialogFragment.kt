@@ -2,7 +2,7 @@ package ca.josephroque.bowlingcompanion.common.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
+import androidx.fragment.app.DialogFragment
 import ca.josephroque.bowlingcompanion.NavigationActivity
 import ca.josephroque.bowlingcompanion.R
 
@@ -31,10 +31,10 @@ abstract class BaseDialogFragment : DialogFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        dialog.window?.attributes?.windowAnimations = R.style.DialogAnimation
+        dialog?.window?.attributes?.windowAnimations = R.style.DialogAnimation
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         fragmentNavigation = context as? BaseFragment.FragmentNavigation
         fabProvider = context as? BaseFragment.FabProvider

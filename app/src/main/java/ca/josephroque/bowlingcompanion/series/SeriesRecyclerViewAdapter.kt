@@ -1,10 +1,10 @@
 package ca.josephroque.bowlingcompanion.series
 
-import android.support.design.chip.Chip
-import android.support.design.chip.ChipGroup
-import android.support.v4.content.ContextCompat
-import android.support.v7.preference.PreferenceManager
-import android.support.v7.widget.RecyclerView
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
+import androidx.core.content.ContextCompat
+import androidx.preference.PreferenceManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

@@ -3,9 +3,9 @@ package ca.josephroque.bowlingcompanion.utils
 import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
-import android.support.annotation.StringRes
-import android.support.v4.content.res.ResourcesCompat
-import android.support.v7.app.AlertDialog
+import androidx.annotation.StringRes
+import androidx.core.content.res.ResourcesCompat
+import androidx.appcompat.app.AlertDialog
 import ca.josephroque.bowlingcompanion.R
 
 /**

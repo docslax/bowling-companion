@@ -3,7 +3,9 @@ package ca.josephroque.bowlingcompanion.utils
 import android.content.Context
 import ca.josephroque.bowlingcompanion.R
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 /**
  * Copyright (C) 2018 Joseph Roque

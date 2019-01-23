@@ -2,9 +2,9 @@ package ca.josephroque.bowlingcompanion.common
 
 import android.app.Dialog
 import android.os.Bundle
-import android.support.annotation.StringRes
-import android.support.v4.app.DialogFragment
-import android.support.v7.app.AppCompatActivity
+import androidx.annotation.StringRes
+import androidx.fragment.app.DialogFragment
+import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.Window

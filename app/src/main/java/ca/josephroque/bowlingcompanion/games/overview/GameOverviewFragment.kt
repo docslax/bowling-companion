@@ -16,7 +16,7 @@ import ca.josephroque.bowlingcompanion.games.Game
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import ca.josephroque.bowlingcompanion.statistics.interfaces.IStatisticsContext
 import ca.josephroque.bowlingcompanion.statistics.provider.StatisticsProvider
 import ca.josephroque.bowlingcompanion.utils.Permission
@@ -106,7 +106,7 @@ class GameOverviewFragment : ListFragment<Game, GameOverviewRecyclerViewAdapter>
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         canIgnoreDelegate = true
         delegate = this
         super.onAttach(context)

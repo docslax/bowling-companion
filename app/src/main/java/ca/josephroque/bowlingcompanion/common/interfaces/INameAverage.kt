@@ -1,7 +1,7 @@
 package ca.josephroque.bowlingcompanion.common.interfaces
 
 import android.content.Context
-import android.support.v7.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import ca.josephroque.bowlingcompanion.settings.Settings
 import java.text.DecimalFormat
 import kotlin.math.roundToInt

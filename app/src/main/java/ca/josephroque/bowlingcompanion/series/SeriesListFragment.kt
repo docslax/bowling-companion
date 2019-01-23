@@ -2,7 +2,7 @@ package ca.josephroque.bowlingcompanion.series
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -103,7 +103,7 @@ class SeriesListFragment : ListFragment<Series, SeriesRecyclerViewAdapter>(),
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         canIgnoreDelegate = true
         delegate = this
         super.onAttach(context)

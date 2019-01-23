@@ -2,11 +2,11 @@ package ca.josephroque.bowlingcompanion
 
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.annotation.IdRes
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
-import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
+import androidx.annotation.IdRes
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import android.view.MenuItem
 import android.view.View
 import ca.josephroque.bowlingcompanion.bowlers.BowlerListFragment
@@ -208,9 +208,9 @@ class NavigationActivity : BaseActivity(),
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        fragNavController?.onSaveInstanceState(outState!!)
+        fragNavController?.onSaveInstanceState(outState)
     }
 
     // MARK: ActivityCompat

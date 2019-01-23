@@ -54,7 +54,7 @@ class StatisticsProviderListFragment : ListFragment<StatisticsProvider,
         super.onStart()
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         canIgnoreDelegate = true
         delegate = this
         super.onAttach(context)

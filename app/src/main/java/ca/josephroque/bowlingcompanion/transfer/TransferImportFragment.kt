@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.dialog_transfer_import.view.*
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.launch
 import android.content.DialogInterface
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import android.text.Editable
 import android.text.TextWatcher
 import ca.josephroque.bowlingcompanion.App

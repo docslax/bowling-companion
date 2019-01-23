@@ -4,8 +4,8 @@ import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
-import android.support.v7.app.AlertDialog
+import androidx.fragment.app.DialogFragment
+import androidx.appcompat.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -94,7 +94,7 @@ class SeriesDialog : BaseDialogFragment(), DatePickerDialog.OnDateSetListener {
         return rootView
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         val parentFragment = parentFragment as? SeriesDialogDelegate ?: throw RuntimeException("${parentFragment!!} must implement SeriesDialogDelegate")
         delegate = parentFragment
@@ -108,7 +108,7 @@ class SeriesDialog : BaseDialogFragment(), DatePickerDialog.OnDateSetListener {
 
     override fun onStart() {
         super.onStart()
-        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
         currentDate?.let { dateText.text = it.pretty }
         updateSaveButton()

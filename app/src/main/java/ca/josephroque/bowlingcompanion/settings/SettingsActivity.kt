@@ -1,7 +1,7 @@
 package ca.josephroque.bowlingcompanion.settings
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
 import ca.josephroque.bowlingcompanion.R
 import kotlinx.android.synthetic.main.activity_navigation.toolbar as toolbar

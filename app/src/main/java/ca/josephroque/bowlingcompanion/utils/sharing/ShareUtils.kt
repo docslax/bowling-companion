@@ -25,7 +25,7 @@ import ca.josephroque.bowlingcompanion.utils.Analytics
 import ca.josephroque.bowlingcompanion.utils.BCError
 import ca.josephroque.bowlingcompanion.utils.Permission
 import ca.josephroque.bowlingcompanion.utils.toBitmap
-import android.support.v4.content.FileProvider
+import androidx.core.content.FileProvider
 import ca.josephroque.bowlingcompanion.BuildConfig
 
 /**

@@ -1,9 +1,9 @@
 package ca.josephroque.bowlingcompanion.teams.list
 
-import android.support.design.chip.Chip
-import android.support.design.chip.ChipGroup
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.RecyclerView
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

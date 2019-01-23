@@ -1,7 +1,7 @@
 package ca.josephroque.bowlingcompanion.common.fragments
 
 import android.content.Context
-import android.support.design.widget.BottomSheetDialogFragment
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import ca.josephroque.bowlingcompanion.matchplay.MatchPlaySheet
 import java.lang.RuntimeException
 
@@ -33,9 +33,9 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     // MARK: Lifecycle functions
 
     @Suppress("UNCHECKED_CAST")
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
-        context as? BaseBottomSheetDialogFragmentDelegate ?: throw RuntimeException("${context!!} must implement BaseBottomSheetDialogFragmentDelegate")
+        context as? BaseBottomSheetDialogFragmentDelegate ?: throw RuntimeException("$context must implement BaseBottomSheetDialogFragmentDelegate")
         delegate = context
     }
 

@@ -3,7 +3,7 @@ package ca.josephroque.bowlingcompanion.statistics.immutable
 import android.content.Context
 import android.database.Cursor
 import android.os.Parcel
-import android.support.v7.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import ca.josephroque.bowlingcompanion.common.interfaces.IIdentifiable
 import ca.josephroque.bowlingcompanion.common.interfaces.KParcelable
 import ca.josephroque.bowlingcompanion.common.interfaces.parcelableCreator

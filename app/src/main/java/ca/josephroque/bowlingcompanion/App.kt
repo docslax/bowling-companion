@@ -2,11 +2,11 @@ package ca.josephroque.bowlingcompanion
 
 import android.app.Activity
 import android.app.Application
-import android.arch.lifecycle.Lifecycle
-import android.arch.lifecycle.LifecycleObserver
-import android.arch.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 import android.content.Context
-import android.support.v7.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import android.view.inputmethod.InputMethodManager
 import ca.josephroque.bowlingcompanion.utils.DateUtils
 import com.google.android.gms.ads.MobileAds

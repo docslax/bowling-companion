@@ -2,7 +2,7 @@ package ca.josephroque.bowlingcompanion.games.dialogs
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import ca.josephroque.bowlingcompanion.R
 import android.view.LayoutInflater
 import android.widget.EditText

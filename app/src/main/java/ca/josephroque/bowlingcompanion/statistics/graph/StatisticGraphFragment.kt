@@ -3,7 +3,7 @@ package ca.josephroque.bowlingcompanion.statistics.graph
 import android.content.Context
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -95,7 +95,7 @@ class StatisticGraphFragment : BaseFragment(),
         return view
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
 
         val parent = parentFragment as? StatisticGraphDelegate ?: throw RuntimeException("${parentFragment!!} must implement StatisticGraphDelegate")

@@ -2,7 +2,7 @@ package ca.josephroque.bowlingcompanion.statistics.unit
 
 import android.content.Context
 import android.os.Parcel
-import android.support.v7.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import ca.josephroque.bowlingcompanion.common.interfaces.KParcelable
 import ca.josephroque.bowlingcompanion.common.interfaces.readBoolean
 import ca.josephroque.bowlingcompanion.common.interfaces.writeBoolean

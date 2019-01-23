@@ -30,7 +30,7 @@
 
     <View style="@style/Separator.Inset.Both" />
 
-    <android.support.design.chip.ChipGroup
+    <com.google.android.material.chip.ChipGroup
         android:id="@+id/cg_scores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

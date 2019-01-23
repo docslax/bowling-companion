@@ -17,7 +17,7 @@
 
     <View style="@style/Separator.Inset.Left" />
 
-    <android.support.design.chip.ChipGroup
+    <com.google.android.material.chip.ChipGroup
         android:id="@+id/cg_members"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

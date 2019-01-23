@@ -3,9 +3,9 @@ package ca.josephroque.bowlingcompanion.matchplay
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.support.design.widget.BottomSheetBehavior
-import android.support.design.widget.BottomSheetDialog
-import android.support.v4.app.DialogFragment
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import androidx.fragment.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -64,7 +64,7 @@ class MatchPlaySheet : BaseBottomSheetDialogFragment() {
         val dialog = super.onCreateDialog(savedInstanceState)
         dialog.setOnShowListener {
             if (it is BottomSheetDialog) {
-                val bottomSheet = it.findViewById<View>(android.support.design.R.id.design_bottom_sheet)
+                val bottomSheet = it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
                 val bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
                 bottomSheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
 
@@ -83,7 +83,7 @@ class MatchPlaySheet : BaseBottomSheetDialogFragment() {
         return dialog
     }
 
-    override fun onCancel(dialog: DialogInterface?) {
+    override fun onCancel(dialog: DialogInterface) {
         super.onCancel(dialog)
         handleUserExit()
     }

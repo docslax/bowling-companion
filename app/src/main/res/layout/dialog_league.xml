@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Dialog">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         style="@style/Toolbar"
         android:id="@+id/toolbar_league" />
 
@@ -49,11 +49,11 @@
 
             <!-- Basic info -->
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 style="@style/BodyText"
                 android:id="@+id/input_layout_name">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -61,13 +61,13 @@
                     android:imeOptions="flagNoFullscreen|actionDone"
                     android:hint="@string/hint_league_event_name"/>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 style="@style/BodyText"
                 android:id="@+id/input_layout_number_of_games">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_number_of_games"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                     android:imeOptions="flagNoFullscreen|actionDone"
                     android:hint="@string/hint_league_number_of_games"/>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Highlights -->
 
@@ -88,11 +88,11 @@
 
                 <View style="@style/HorizontalDivider" />
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     style="@style/BodyText"
                     android:id="@+id/input_layout_game_highlight">
 
-                    <android.support.design.widget.TextInputEditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/input_game_highlight"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -101,13 +101,13 @@
                         android:imeOptions="flagNoFullscreen|actionNext"
                         android:hint="@string/hint_league_game_highlight" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     style="@style/BodyText"
                     android:id="@+id/input_layout_series_highlight">
 
-                    <android.support.design.widget.TextInputEditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/input_series_highlight"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                         android:imeOptions="flagNoFullscreen|actionDone"
                         android:hint="@string/hint_league_series_highlight" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
@@ -160,11 +160,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         style="@style/BodyText"
                         android:id="@+id/input_layout_additional_pinfall">
 
-                        <android.support.design.widget.TextInputEditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/input_additional_pinfall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -173,13 +173,13 @@
                             android:imeOptions="flagNoFullscreen|actionNext"
                             android:hint="@string/hint_league_additional_pinfall" />
 
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         style="@style/BodyText"
                         android:id="@+id/input_layout_additional_games">
 
-                        <android.support.design.widget.TextInputEditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/input_additional_games"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
                             android:imeOptions="flagNoFullscreen|actionDone"
                             android:hint="@string/hint_league_additional_games" />
 
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
 

@@ -2,12 +2,12 @@ package ca.josephroque.bowlingcompanion.games
 
 import android.content.Context
 import android.os.Bundle
-import android.support.annotation.IdRes
-import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
-import android.support.v7.preference.PreferenceManager
+import androidx.annotation.IdRes
+import com.google.android.material.tabs.TabLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
+import androidx.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -132,7 +132,7 @@ class GameControllerFragment : TabbedFragment(),
         activity?.window?.setSoftInputMode(0)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         navigationDrawerProvider = context as? NavigationDrawerController.NavigationDrawerProvider
     }
@@ -315,12 +315,12 @@ class GameControllerFragment : TabbedFragment(),
     ) : FragmentPagerAdapter(fragmentManager) {
         override fun getCount() = tabCount
 
-        override fun getItem(position: Int): Fragment? {
+        override fun getItem(position: Int): Fragment {
             seriesList?.let {
                 return GameFragment.newInstance(seriesList[position])
             }
 
-            return null
+            throw Error("GameControllerPagerAdapter invalid position: $position")
         }
     }
 }

@@ -4,9 +4,9 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.FragmentTransaction
-import android.support.v7.preference.Preference
-import android.support.v7.preference.PreferenceFragmentCompat
+import androidx.fragment.app.FragmentTransaction
+import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
 import ca.josephroque.bowlingcompanion.BuildConfig
 import ca.josephroque.bowlingcompanion.R
 import ca.josephroque.bowlingcompanion.common.ScrollableTextDialog
@@ -57,40 +57,18 @@ class SettingsFragment : PreferenceFragmentCompat(),
 
     private val onPreferenceClickListener = Preference.OnPreferenceClickListener {
         when (it.key) {
-            Settings.StaticSetting.ReportBug.prefName -> {
-                sendBugReportEmail()
-                true
-            }
-            Settings.StaticSetting.SendFeedback.prefName -> {
-                sendFeedbackEmail()
-                true
-            }
-            Settings.StaticSetting.Rate.prefName -> {
-                displayPlayStoreListing()
-                true
-            }
-            Settings.StaticSetting.Attributions.prefName -> {
-                displayAttributions()
-                true
-            }
-            Settings.StaticSetting.Facebook.prefName -> {
-                displayFacebookPage()
-                true
-            }
-            Settings.StaticSetting.DeveloperWebsite.prefName -> {
-                Analytics.trackViewWebsite()
-                true
-            }
-            Settings.StaticSetting.ViewSource.prefName -> {
-                Analytics.trackViewSource()
-                true
-            }
-            Settings.StaticSetting.PrivacyPolicy.prefName -> {
-                Analytics.trackViewPrivacyPolicy()
-                true
-            }
-            else -> false // Does nothing
+            Settings.StaticSetting.ReportBug.prefName -> sendBugReportEmail()
+            Settings.StaticSetting.SendFeedback.prefName -> sendFeedbackEmail()
+            Settings.StaticSetting.Rate.prefName -> displayPlayStoreListing()
+            Settings.StaticSetting.Attributions.prefName -> displayAttributions()
+            Settings.StaticSetting.Facebook.prefName -> displayFacebookPage()
+            Settings.StaticSetting.DeveloperWebsite.prefName -> displayDeveloperWebsite()
+            Settings.StaticSetting.ViewSource.prefName -> displayAppSourceWebsite()
+            Settings.StaticSetting.PrivacyPolicy.prefName -> displayPrivacyPolicyWebsite()
+            else -> return@OnPreferenceClickListener false // Does nothing
         }
+
+        return@OnPreferenceClickListener true
     }
 
     // MARK: Lifecycle functions
@@ -108,13 +86,13 @@ class SettingsFragment : PreferenceFragmentCompat(),
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.pref_app)
 
-        findPreference(Settings.StaticSetting.ReportBug.prefName).onPreferenceClickListener = onPreferenceClickListener
-        findPreference(Settings.StaticSetting.SendFeedback.prefName).onPreferenceClickListener = onPreferenceClickListener
-        findPreference(Settings.StaticSetting.Rate.prefName).onPreferenceClickListener = onPreferenceClickListener
-        findPreference(Settings.StaticSetting.Attributions.prefName).onPreferenceClickListener = onPreferenceClickListener
-        findPreference(Settings.StaticSetting.Facebook.prefName).onPreferenceClickListener = onPreferenceClickListener
-        findPreference(Settings.StaticSetting.DeveloperWebsite.prefName).onPreferenceClickListener = onPreferenceClickListener
-        findPreference(Settings.StaticSetting.ViewSource.prefName).onPreferenceClickListener = onPreferenceClickListener
+        findPreference<Preference>(Settings.StaticSetting.ReportBug.prefName).onPreferenceClickListener = onPreferenceClickListener
+        findPreference<Preference>(Settings.StaticSetting.SendFeedback.prefName).onPreferenceClickListener = onPreferenceClickListener
+        findPreference<Preference>(Settings.StaticSetting.Rate.prefName).onPreferenceClickListener = onPreferenceClickListener
+        findPreference<Preference>(Settings.StaticSetting.Attributions.prefName).onPreferenceClickListener = onPreferenceClickListener
+        findPreference<Preference>(Settings.StaticSetting.Facebook.prefName).onPreferenceClickListener = onPreferenceClickListener
+        findPreference<Preference>(Settings.StaticSetting.DeveloperWebsite.prefName).onPreferenceClickListener = onPreferenceClickListener
+        findPreference<Preference>(Settings.StaticSetting.ViewSource.prefName).onPreferenceClickListener = onPreferenceClickListener
     }
 
     override fun onStart() {
@@ -205,12 +183,42 @@ class SettingsFragment : PreferenceFragmentCompat(),
         Analytics.trackViewFacebook()
     }
 
+    private fun displayAppSourceWebsite() {
+        activity?.let {
+            it.startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse(resources.getString(R.string.open_source_repository))
+            })
+        }
+
+        Analytics.trackViewSource()
+    }
+
+    private fun displayDeveloperWebsite() {
+        activity?.let {
+            it.startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse(resources.getString(R.string.developer_website))
+            })
+        }
+
+        Analytics.trackViewWebsite()
+    }
+
+    private fun displayPrivacyPolicyWebsite() {
+        activity?.let {
+            it.startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse(resources.getString(R.string.privacy_policy))
+            })
+        }
+
+        Analytics.trackViewPrivacyPolicy()
+    }
+
     private fun updatePreferenceSummaries() {
         val prefs = preferenceScreen.sharedPreferences
-        findPreference(Settings.StaticSetting.VersionName.prefName).summary = BuildConfig.VERSION_NAME
+        findPreference<Preference>(Settings.StaticSetting.VersionName.prefName).summary = BuildConfig.VERSION_NAME
 
         val autoAdvanceTime = Settings.StringSetting.AutoAdvanceTime.getValue(prefs)
         val timeComponents = autoAdvanceTime.split(" ")
-        findPreference(Settings.StringSetting.AutoAdvanceTime.prefName).summary = resources.getString(R.string.pref_auto_advance_time_summary_seconds, timeComponents[0])
+        findPreference<Preference>(Settings.StringSetting.AutoAdvanceTime.prefName).summary = resources.getString(R.string.pref_auto_advance_time_summary_seconds, timeComponents[0])
     }
 }

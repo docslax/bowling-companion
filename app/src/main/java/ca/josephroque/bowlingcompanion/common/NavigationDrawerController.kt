@@ -1,7 +1,7 @@
 package ca.josephroque.bowlingcompanion.common
 
-import android.support.annotation.IdRes
-import android.support.design.widget.NavigationView
+import androidx.annotation.IdRes
+import com.google.android.material.navigation.NavigationView
 import android.widget.TextView
 import ca.josephroque.bowlingcompanion.R
 import ca.josephroque.bowlingcompanion.leagues.League

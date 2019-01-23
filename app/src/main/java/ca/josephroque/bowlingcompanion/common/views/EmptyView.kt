@@ -1,7 +1,7 @@
 package ca.josephroque.bowlingcompanion.common.views
 
 import android.content.Context
-import android.support.constraint.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View

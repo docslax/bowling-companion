@@ -2,8 +2,8 @@ package ca.josephroque.bowlingcompanion.common.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.support.design.widget.TabLayout
-import android.support.v4.app.FragmentPagerAdapter
+import com.google.android.material.tabs.TabLayout
+import androidx.fragment.app.FragmentPagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,9 +41,9 @@ abstract class TabbedFragment : BaseFragment(),
         return rootView
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
-        context as? TabbedFragmentDelegate ?: throw RuntimeException("${context!!} must implement TabbedFragmentDelegate")
+        context as? TabbedFragmentDelegate ?: throw RuntimeException("$context must implement TabbedFragmentDelegate")
         delegate = context
     }
 
@@ -79,7 +79,8 @@ abstract class TabbedFragment : BaseFragment(),
     abstract fun handleTabSwitch(newTab: Int)
 
     fun findFragmentByPosition(position: Int): BaseFragment? {
-        val fragmentPagerAdapter = fragmentPager.adapter as? FragmentPagerAdapter ?: return null
+        val fragmentPagerAdapter = fragmentPager.adapter as? FragmentPagerAdapter
+                ?: return null
         val tag = "android:switcher:${fragmentPager.id}:${fragmentPagerAdapter.getItemId(position)}"
         return childFragmentManager.findFragmentByTag(tag) as? BaseFragment
 }

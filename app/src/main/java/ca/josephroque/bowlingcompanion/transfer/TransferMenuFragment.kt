@@ -51,7 +51,7 @@ class TransferMenuFragment : BaseTransferFragment() {
         return view
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         delegate = parentFragment as? TransferMenuDelegate ?: throw RuntimeException("${parentFragment!!} must implement TransferMenuDelegate")
     }

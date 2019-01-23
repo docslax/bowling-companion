@@ -3,8 +3,8 @@ package ca.josephroque.bowlingcompanion.games
 import android.content.Context
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.support.design.widget.BottomSheetBehavior
-import android.support.v7.app.AlertDialog
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import androidx.appcompat.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -128,15 +128,15 @@ class GameFragment : BaseFragment(),
         inflater.inflate(R.menu.fragment_game, menu)
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu?) {
+    override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
         if (!gameState.gamesLoaded) { return }
-        menu?.findItem(R.id.action_set_score)?.isVisible = !gameState.currentGame.isManual
-        menu?.findItem(R.id.action_clear_score)?.isVisible = gameState.currentGame.isManual
-        menu?.findItem(R.id.action_best_possible)?.isVisible = !gameState.currentGame.isManual
+        menu.findItem(R.id.action_set_score)?.isVisible = !gameState.currentGame.isManual
+        menu.findItem(R.id.action_clear_score)?.isVisible = gameState.currentGame.isManual
+        menu.findItem(R.id.action_best_possible)?.isVisible = !gameState.currentGame.isManual
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         val parent = parentFragment as? GameFragmentDelegate ?: throw RuntimeException("${parentFragment!!} must implement GameFragmentDelegate")
         delegate = parent
@@ -185,9 +185,9 @@ class GameFragment : BaseFragment(),
         super.onPause()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         autoEventController.pauseAll()
-        return when (item?.itemId) {
+        return when (item.itemId) {
             R.id.action_overview -> {
                 showOverview()
                 true

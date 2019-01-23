@@ -1,10 +1,10 @@
 package ca.josephroque.bowlingcompanion
 
 import android.os.Bundle
-import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+import com.google.android.material.tabs.TabLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -220,11 +220,11 @@ class BowlerTeamTabbedFragment : TabbedFragment(),
     ) : FragmentPagerAdapter(fragmentManager) {
         override fun getCount() = tabCount
 
-        override fun getItem(position: Int): Fragment? {
+        override fun getItem(position: Int): Fragment {
             return when (Tab.fromInt(position)) {
                 Tab.Bowlers -> BowlerListFragment.newInstance()
                 Tab.Teams -> TeamListFragment.newInstance()
-                else -> null
+                else -> throw Error("BowlerTeamPagerAdapter invalid position: $position")
             }
         }
     }

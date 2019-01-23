@@ -51,7 +51,7 @@ class TeamMembersListFragment :
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         val parent = parentFragment as? TeamMemberListFragmentDelegate ?: throw RuntimeException("${parentFragment!!} must implement TeamMemberListFragmentDelegate")
         teamMemberDelegate = parent

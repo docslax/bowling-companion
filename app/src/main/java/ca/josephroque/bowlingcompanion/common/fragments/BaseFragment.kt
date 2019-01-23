@@ -1,7 +1,7 @@
 package ca.josephroque.bowlingcompanion.common.fragments
 
 import android.content.Context
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import ca.josephroque.bowlingcompanion.NavigationActivity
 import ca.josephroque.bowlingcompanion.utils.Permission
 
@@ -42,7 +42,7 @@ abstract class BaseFragment : Fragment() {
 
     // MARK: Lifecycle functions
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         fragmentNavigation = context as? BaseFragment.FragmentNavigation
         fabProvider = context as? BaseFragment.FabProvider

@@ -3,9 +3,9 @@ package ca.josephroque.bowlingcompanion.teams.list
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
-import android.support.v7.app.AlertDialog
-import android.support.v7.widget.LinearLayoutManager
+import androidx.fragment.app.DialogFragment
+import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -103,7 +103,7 @@ class TeamDialog : BaseDialogFragment(),
         return rootView
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         val parent = parentFragment as? TeamDialogDelegate
                 ?: throw RuntimeException("${parentFragment!!} must implement TeamDialogDelegate")
@@ -117,7 +117,7 @@ class TeamDialog : BaseDialogFragment(),
 
     override fun onStart() {
         super.onStart()
-        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
         activity?.let {
             nameInput.clearFocus()
@@ -138,7 +138,7 @@ class TeamDialog : BaseDialogFragment(),
     override fun dismiss() {
         activity?.let {
             App.hideSoftKeyBoard(it)
-            it.supportFragmentManager?.popBackStack()
+            it.supportFragmentManager.popBackStack()
         }
 
         super.dismiss()

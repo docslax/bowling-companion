@@ -1,8 +1,8 @@
 package ca.josephroque.bowlingcompanion.utils
 
 import android.content.Context
-import android.support.v7.app.AlertDialog
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.Toolbar
 import ca.josephroque.bowlingcompanion.R
 import android.widget.TextView
 import android.view.View
