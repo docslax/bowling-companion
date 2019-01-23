@@ -54,7 +54,7 @@ class BowlerDialog : BaseDialogFragment() {
                     .setMessage(R.string.dialog_delete_item_message)
                     .setPositiveButton(R.string.delete) { _, _ ->
                         delegate?.onDeleteBowler(bowler)
-                        dismiss()
+                        fragmentNavigation?.clearDialogFragment()
                     }
                     .setNegativeButton(R.string.cancel, null)
                     .show()
@@ -109,12 +109,6 @@ class BowlerDialog : BaseDialogFragment() {
         updateSaveButton()
     }
 
-    override fun dismiss() {
-        App.hideSoftKeyBoard(activity!!)
-        activity?.supportFragmentManager?.popBackStack()
-        super.dismiss()
-    }
-
     // MARK: Private functions
 
     private fun setupToolbar(rootView: View) {
@@ -129,7 +123,7 @@ class BowlerDialog : BaseDialogFragment() {
             menu.findItem(R.id.action_save).isEnabled = bowler?.name?.isNotEmpty() == true
             setNavigationIcon(R.drawable.ic_dismiss)
             setNavigationOnClickListener {
-                dismiss()
+                fragmentNavigation?.clearDialogFragment()
             }
             setOnMenuItemClickListener {
                 when (it.itemId) {
@@ -184,7 +178,7 @@ class BowlerDialog : BaseDialogFragment() {
                         error.show(context)
                         bowler?.let { resetInputs(it) }
                     } else if (newBowler != null) {
-                        dismiss()
+                        fragmentNavigation?.clearDialogFragment()
                         delegate?.onFinishBowler(newBowler)
 
                         if (oldBowler == null) {

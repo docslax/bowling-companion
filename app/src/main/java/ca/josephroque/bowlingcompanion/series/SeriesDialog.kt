@@ -67,7 +67,7 @@ class SeriesDialog : BaseDialogFragment(), DatePickerDialog.OnDateSetListener {
                             .setMessage(R.string.dialog_delete_item_message)
                             .setPositiveButton(R.string.delete) { _, _ ->
                                 delegate?.onDeleteSeries(series)
-                                dismiss()
+                                fragmentNavigation?.clearDialogFragment()
                             }
                             .setNegativeButton(R.string.cancel, null)
                             .show()
@@ -127,12 +127,6 @@ class SeriesDialog : BaseDialogFragment(), DatePickerDialog.OnDateSetListener {
         return dialog
     }
 
-    override fun dismiss() {
-        App.hideSoftKeyBoard(activity!!)
-        activity?.supportFragmentManager?.popBackStack()
-        super.dismiss()
-    }
-
     // MARK: Private functions
 
     private fun setupToolbar(rootView: View) {
@@ -141,7 +135,7 @@ class SeriesDialog : BaseDialogFragment(), DatePickerDialog.OnDateSetListener {
             inflateMenu(R.menu.dialog_series)
             setNavigationIcon(R.drawable.ic_dismiss)
             setNavigationOnClickListener {
-                dismiss()
+                fragmentNavigation?.clearDialogFragment()
             }
             setOnMenuItemClickListener {
                 when (it.itemId) {
@@ -181,7 +175,7 @@ class SeriesDialog : BaseDialogFragment(), DatePickerDialog.OnDateSetListener {
                 error.show(context)
                 dateText.text = oldSeries.date.pretty
             } else if (newSeries != null) {
-                dismiss()
+                fragmentNavigation?.clearDialogFragment()
                 delegate?.onFinishSeries(newSeries)
 
                 Analytics.trackEditSeries()

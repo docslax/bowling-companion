@@ -76,12 +76,6 @@ class BaseTransferDialogFragment : BaseDialogFragment(), TransferMenuFragment.Tr
         childFragmentManager.removeOnBackStackChangedListener(onBackStackChangedListener)
     }
 
-    override fun dismiss() {
-        App.hideSoftKeyBoard(activity!!)
-        activity?.supportFragmentManager?.popBackStack()
-        super.dismiss()
-    }
-
     // MARK: Private functions
 
     private fun setupToolbar(rootView: View) {

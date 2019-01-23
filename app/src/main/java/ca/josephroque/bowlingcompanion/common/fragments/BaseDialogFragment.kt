@@ -3,6 +3,7 @@ package ca.josephroque.bowlingcompanion.common.fragments
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
+import ca.josephroque.bowlingcompanion.App
 import ca.josephroque.bowlingcompanion.NavigationActivity
 import ca.josephroque.bowlingcompanion.R
 
@@ -49,6 +50,7 @@ abstract class BaseDialogFragment : DialogFragment() {
     }
 
     override fun dismiss() {
+        activity?.let { App.hideSoftKeyBoard(it) }
         onDismissListener?.onDismiss(this)
         super.dismiss()
     }

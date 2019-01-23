@@ -78,7 +78,7 @@ class TeamDialog : BaseDialogFragment(),
                     .setMessage(R.string.dialog_delete_item_message)
                     .setPositiveButton(R.string.delete) { _, _ ->
                         delegate?.onDeleteTeam(team)
-                        dismiss()
+                        fragmentNavigation?.clearDialogFragment()
                     }
                     .setNegativeButton(R.string.cancel, null)
                     .show()
@@ -135,15 +135,6 @@ class TeamDialog : BaseDialogFragment(),
         return dialog
     }
 
-    override fun dismiss() {
-        activity?.let {
-            App.hideSoftKeyBoard(it)
-            it.supportFragmentManager.popBackStack()
-        }
-
-        super.dismiss()
-    }
-
     // MARK: Private functions
 
     private fun setupToolbar(rootView: View) {
@@ -157,7 +148,7 @@ class TeamDialog : BaseDialogFragment(),
             inflateMenu(R.menu.dialog_team)
             setNavigationIcon(R.drawable.ic_dismiss)
             setNavigationOnClickListener {
-                dismiss()
+                fragmentNavigation?.clearDialogFragment()
             }
             setOnMenuItemClickListener {
                 when (it.itemId) {
@@ -229,7 +220,7 @@ class TeamDialog : BaseDialogFragment(),
                         oldTeam?.let { resetInputs(it) }
                         refreshBowlerList()
                     } else if (newTeam != null) {
-                        dismiss()
+                        fragmentNavigation?.clearDialogFragment()
                         delegate?.onFinishTeam(newTeam)
 
                         if (oldTeam == null) {

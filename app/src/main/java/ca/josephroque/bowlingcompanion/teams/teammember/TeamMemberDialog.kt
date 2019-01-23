@@ -103,11 +103,6 @@ class TeamMemberDialog : BaseDialogFragment(),
         return dialog
     }
 
-    override fun dismiss() {
-        activity?.supportFragmentManager?.popBackStack()
-        super.dismiss()
-    }
-
     // MARK: ListFragmentDelegate
 
     override fun onItemSelected(item: IIdentifiable, longPress: Boolean) {
@@ -145,7 +140,7 @@ class TeamMemberDialog : BaseDialogFragment(),
         rootView.toolbar_team_member.apply {
             setNavigationOnClickListener {
                 if (selectedLeague == null) {
-                    dismiss()
+                    fragmentNavigation?.clearDialogFragment()
                 } else {
                     selectedLeague = null
                     childFragmentManager.popBackStack()
@@ -212,7 +207,7 @@ class TeamMemberDialog : BaseDialogFragment(),
                         series = selectedSeries
                 )
                 delegate?.onFinishTeamMember(newTeamMember)
-                dismiss()
+                fragmentNavigation?.clearDialogFragment()
             }
         }
     }

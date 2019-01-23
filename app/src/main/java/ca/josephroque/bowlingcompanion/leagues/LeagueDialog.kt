@@ -91,7 +91,7 @@ class LeagueDialog : BaseDialogFragment() {
                             .setMessage(R.string.dialog_delete_item_message)
                             .setPositiveButton(R.string.delete) { _, _ ->
                                 delegate?.onDeleteLeague(league)
-                                dismiss()
+                                fragmentNavigation?.clearDialogFragment()
                             }
                             .setNegativeButton(R.string.cancel, null)
                             .show()
@@ -186,12 +186,6 @@ class LeagueDialog : BaseDialogFragment() {
         return dialog
     }
 
-    override fun dismiss() {
-        App.hideSoftKeyBoard(activity!!)
-        activity?.supportFragmentManager?.popBackStack()
-        super.dismiss()
-    }
-
     // MARK: Private functions
 
     private fun setupToolbar(rootView: View) {
@@ -207,7 +201,7 @@ class LeagueDialog : BaseDialogFragment() {
             menu.findItem(R.id.action_save).isEnabled = league?.name?.isNotEmpty() == true
             setNavigationIcon(R.drawable.ic_dismiss)
             setNavigationOnClickListener {
-                dismiss()
+                fragmentNavigation?.clearDialogFragment()
             }
             setOnMenuItemClickListener {
                 when (it.itemId) {
@@ -437,7 +431,7 @@ class LeagueDialog : BaseDialogFragment() {
                         league?.let { resetInputs(it) }
                         setImeOptions()
                     } else if (newLeague != null) {
-                        dismiss()
+                        fragmentNavigation?.clearDialogFragment()
                         delegate?.onFinishLeague(newLeague)
 
                         if (oldLeague == null) {

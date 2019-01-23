@@ -240,6 +240,10 @@ class NavigationActivity : BaseActivity(),
         fragment.show(supportFragmentManager, tag)
     }
 
+    override fun clearDialogFragment() {
+        fragNavController?.clearDialogFragment()
+    }
+
     // MARK: BaseBottomSheetDialogFragmentDelegate
 
     @Suppress("UNCHECKED_CAST")
