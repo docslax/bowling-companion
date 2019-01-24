@@ -134,28 +134,11 @@
 
                 <View style="@style/HorizontalDivider" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        style="@style/BodyText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginRight="@dimen/base_margin"
-                        android:text="@string/league_additional_games_description"
-                        tools:ignore="RtlHardcoded" />
-
-                    <CheckBox
-                        style="@style/CheckBox"
-                        android:layout_width="wrap_content"
-                        android:layout_marginLeft="@dimen/base_margin"
-                        android:id="@+id/checkbox_additional_games"
-                        tools:ignore="RtlHardcoded" />
-
-                </LinearLayout>
+                <CheckBox
+                    style="@style/CheckBox"
+                    android:id="@+id/checkbox_additional_games"
+                    android:text="@string/league_additional_games_description"
+                    tools:ignore="RtlHardcoded" />
 
                 <LinearLayout
                     android:id="@+id/layout_additional_games_details"
