@@ -82,7 +82,7 @@ class TeamRecyclerViewAdapter(
                     isFocusable = false
                     isClickable = false
                     text = it.bowlerName
-                    setChipBackgroundColorResource(R.color.colorPrimary)
+                    setChipBackgroundColorResource(R.color.primary)
                     setTextColor(ContextCompat.getColor(context, R.color.primaryWhiteText))
                     chipGroupMembers?.addView(this)
                 }

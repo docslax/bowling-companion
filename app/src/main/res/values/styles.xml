@@ -3,19 +3,44 @@
 
     <!-- App Theme -->
 
-    <style name="AppTheme" parent="Theme.MaterialComponents">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorSecondary">@color/colorSecondary</item>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/primaryWhiteText</item>
+        <item name="colorPrimaryVariant">@color/primaryDark</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/primaryBlackText</item>
+        <item name="colorAccent">@color/secondary</item>
+        <item name="colorError">@color/dangerRed</item>
+        <item name="colorOnError">@color/primaryWhiteText</item>
+        <item name="colorSurface">@color/primaryWashedOut</item>
+        <item name="colorOnSurface">@color/primaryBlackText</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorOnBackground">@color/primaryBlackText</item>
+
         <item name="preferenceTheme">@style/SettingTheme</item>
-        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:windowBackground">@color/background</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppTheme.NoBackground" parent="AppTheme">
         <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <!-- Toolbars -->
+
+    <style name="Toolbar" parent="AppTheme">
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?android:attr/actionBarSize</item>
+        <item name="android:background">?android:attr/colorPrimary</item>
+        <item name="android:elevation">@dimen/base_elevation</item>
+        <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
     </style>
 
     <!-- Basic Components -->
@@ -33,7 +58,7 @@
     <style name="HorizontalDivider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
-        <item name="android:background">@color/colorDivider</item>
+        <item name="android:background">@color/divider</item>
         <item name="android:layout_marginTop">@dimen/base_margin</item>
         <item name="android:layout_marginBottom">@dimen/base_margin</item>
     </style>
@@ -52,27 +77,12 @@
         <item name="android:windowExitAnimation">@anim/slide_down</item>
     </style>
 
-    <!-- Toolbars -->
-
-    <style name="Toolbar" parent="AppTheme">
-        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:minHeight">?android:attr/actionBarSize</item>
-        <item name="android:background">?android:attr/colorPrimary</item>
-        <item name="android:elevation">@dimen/base_elevation</item>
-        <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="layout_constraintTop_toTopOf">parent</item>
-        <item name="layout_constraintLeft_toLeftOf">parent</item>
-        <item name="layout_constraintRight_toRightOf">parent</item>
-    </style>
-
     <!-- Tab Layout -->
 
     <style name="TabLayout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:background">@color/primary</item>
         <item name="android:elevation">@dimen/base_elevation</item>
         <item name="layout_constraintLeft_toLeftOf">parent</item>
         <item name="layout_constraintRight_toRightOf">parent</item>
@@ -100,7 +110,7 @@
         <item name="android:orientation">vertical</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
-        <item name="android:background">@color/colorBackground</item>
+        <item name="android:background">@color/background</item>
     </style>
 
     <style name="BottomSheetDialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
@@ -111,8 +121,7 @@
 
     <!-- Buttons -->
 
-    <style name="PrimaryButton" parent="Widget.AppCompat.Button">
-        <item name="android:theme">@style/PrimaryButton</item>
+    <style name="PrimaryButton" parent="Widget.MaterialComponents.Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/primary_button</item>
@@ -124,7 +133,6 @@
     </style>
 
     <style name="DeleteButton" parent="@style/PrimaryButton">
-        <item name="android:theme">@style/DeleteButton</item>
         <item name="android:background">@drawable/delete_button</item>
         <item name="android:textColor">@color/primaryWhiteText</item>
     </style>
@@ -208,11 +216,48 @@
         <item name="android:layout_marginBottom">@dimen/text_margin_vertical</item>
     </style>
 
+    <style name="HeaderTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primaryBlackText</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_header</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:layout_marginLeft">@dimen/text_margin_horizontal</item>
+        <item name="android:layout_marginRight">@dimen/text_margin_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/text_margin_vertical</item>
+        <item name="android:layout_marginBottom">@dimen/text_margin_vertical</item>
+    </style>
+
     <style name="SubHeaderText" parent="HeaderText">
         <item name="android:textSize">@dimen/text_subheader</item>
     </style>
 
+    <style name="SubHeaderTextInput" parent="HeaderTextInput">
+        <item name="android:textSize">@dimen/text_subheader</item>
+    </style>
+
     <style name="BodyText" parent="@android:style/TextAppearance">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primaryBlackText</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:layout_marginLeft">@dimen/text_margin_horizontal</item>
+        <item name="android:layout_marginRight">@dimen/text_margin_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/text_margin_vertical</item>
+        <item name="android:layout_marginBottom">@dimen/text_margin_vertical</item>
+    </style>
+
+    <style name="PaddedTextInputEditText">
+        <item name="android:paddingLeft">@dimen/text_margin_horizontal</item>
+        <item name="android:paddingStart">@dimen/text_margin_horizontal</item>
+        <item name="android:paddingRight">@dimen/text_margin_horizontal</item>
+        <item name="android:paddingEnd">@dimen/text_margin_horizontal</item>
+    </style>
+
+    <style name="BodyTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/primaryBlackText</item>
@@ -307,7 +352,7 @@
     <style name="Separator">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1px</item>
-        <item name="android:background">@color/colorDivider</item>
+        <item name="android:background">@color/divider</item>
     </style>
 
     <style name="Separator.Inset.Left" parent="Separator">
@@ -322,9 +367,9 @@
     <!-- Settings -->
 
     <style name="SettingTheme" parent="PreferenceThemeOverlay.v14.Material">
-        <item name="colorAccent">@color/colorPrimary</item>
-        <item name="colorSecondary">@color/colorPrimary</item>
-        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="colorAccent">@color/primary</item>
+        <item name="colorSecondary">@color/primary</item>
+        <item name="android:windowBackground">@color/background</item>
         <item name="android:textColorPrimary">@color/primaryBlackText</item>
         <item name="android:textColorSecondary">@color/secondaryBlackText</item>
         <item name="windowActionBar">false</item>

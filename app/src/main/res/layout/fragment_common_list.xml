@@ -21,7 +21,7 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingBottom="@dimen/list_item_min_height"
-        android:background="@color/colorListAlternate"
+        android:background="@color/listAlternate"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/list_header"

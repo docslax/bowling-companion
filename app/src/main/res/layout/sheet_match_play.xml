@@ -6,7 +6,7 @@
     android:id="@+id/sheet_match_play"
     android:layout_width="match_parent"
     android:layout_height="@dimen/bottom_sheet_height"
-    android:background="@color/colorBackground"
+    android:background="@color/background"
     app:behavior_hideable="true"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     tools:ignore="Overdraw">
@@ -18,12 +18,13 @@
             android:text="@string/match_play_header" />
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/BodyText"
+            style="@style/BodyTextInput"
             android:id="@+id/input_layout_opponent_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/PaddedTextInputEditText"
                 android:id="@+id/input_opponent_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,12 +35,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/BodyText"
+            style="@style/BodyTextInput"
             android:id="@+id/input_layout_opponent_score"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/PaddedTextInputEditText"
                 android:id="@+id/input_opponent_score"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -156,7 +156,7 @@ class StatisticGraphFragment : BaseFragment(),
 
     private fun addChartDataStyling(context: Context, dataSet: LineDataSet, lineIndex: Int) {
         val color = when (lineIndex) {
-            0 -> ContextCompat.getColor(context, R.color.colorPrimary)
+            0 -> ContextCompat.getColor(context, R.color.primary)
             1 -> ContextCompat.getColor(context, R.color.dangerRed)
             else -> throw IllegalAccessException("Only up to 2 lines are available for a statistic.")
         }

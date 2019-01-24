@@ -8,7 +8,7 @@
     android:layout_height="wrap_content"
     android:paddingTop="@dimen/base_margin"
     android:paddingBottom="@dimen/base_margin"
-    android:background="@color/colorPrimaryLight"
+    android:background="@color/primaryLight"
     tools:ignore="Overdraw">
     
     <TextView

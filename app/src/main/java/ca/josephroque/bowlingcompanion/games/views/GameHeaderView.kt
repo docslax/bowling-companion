@@ -60,7 +60,7 @@ class GameHeaderView : LinearLayout, View.OnClickListener {
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         LayoutInflater.from(context).inflate(R.layout.view_game_header, this, true)
-        setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryLight))
+        setBackgroundColor(ContextCompat.getColor(context, R.color.primaryLight))
         gameNumber.text = String.format(resources.getString(R.string.game_number), currentGame + 1)
         nextBall.setOnClickListener(this)
         prevBall.setOnClickListener(this)

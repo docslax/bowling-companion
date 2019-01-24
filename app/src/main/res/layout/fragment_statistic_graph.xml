@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorBackground">
+    android:background="@color/background">
     
     <TextView
         style="@style/HeaderText"
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textColor="@color/primaryWhiteText"
-        android:background="@color/colorPrimaryLight"
+        android:background="@color/primaryLight"
         android:layout_margin="0dp"
         android:paddingLeft="@dimen/text_margin_horizontal"
         android:paddingRight="@dimen/text_margin_horizontal"
@@ -53,7 +53,7 @@
         android:id="@+id/graph_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryLight">
+        android:background="@color/primaryLight">
 
         <TextView
             style="@style/BodyText"

@@ -207,7 +207,7 @@ class SeriesRecyclerViewAdapter(
                         setTextColor(ContextCompat.getColor(context, chipTextColorResource))
                         chipIconResource?.let { setChipIconResource(it) }
                         chipIconTintResource?.let { setChipIconTintResource(it) }
-                        setChipBackgroundColorResource(R.color.colorListContrast)
+                        setChipBackgroundColorResource(R.color.listContrast)
                     }
 
                     chipGroupScores?.addView(chip)

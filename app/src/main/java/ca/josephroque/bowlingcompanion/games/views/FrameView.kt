@@ -139,7 +139,7 @@ class FrameView : LinearLayout, View.OnClickListener {
         val ballView = findViewById<TextView>(ballViewIds[ball])
         ballView.text = text
         if (shouldHighlightMarks && (text == Ball.Strike.toString() || text == Ball.Spare.toString())) {
-            ballView.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary))
+            ballView.setTextColor(ContextCompat.getColor(context, R.color.primary))
         } else {
             ballView.setTextColor(ContextCompat.getColor(context, R.color.primaryBlackText))
         }

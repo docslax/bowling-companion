@@ -12,12 +12,13 @@
             android:text="@string/transfer_import_instructions" />
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/BodyText"
+            style="@style/BodyTextInput"
             android:id="@+id/input_layout_key"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/PaddedTextInputEditText"
                 android:id="@+id/input_key"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

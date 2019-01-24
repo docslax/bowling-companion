@@ -7,7 +7,7 @@
     android:minHeight="@dimen/list_item_min_height"
     android:orientation="horizontal"
     android:foreground="?android:attr/selectableItemBackground"
-    android:background="@color/colorListPrimary"
+    android:background="@color/listPrimary"
     tools:ignore="RtlHardcoded">
 
     <CheckBox

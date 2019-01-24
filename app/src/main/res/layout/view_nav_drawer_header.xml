@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
+    android:background="@color/primary"
     tools:ignore="Overdraw">
 
     <TextView
@@ -16,7 +16,7 @@
         android:layout_marginRight="0dp"
         android:layout_marginTop="@dimen/nav_header_top_margin"
         android:padding="@dimen/base_margin_large"
-        android:background="@color/colorPrimary"
+        android:background="@color/primary"
         android:text="@string/app_name"
         android:textColor="@color/primaryWhiteText"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,7 +29,7 @@
         android:id="@+id/nav_bowler_section"
         android:paddingTop="@dimen/base_margin"
         android:paddingBottom="@dimen/base_margin"
-        android:background="@color/colorPrimaryLight"
+        android:background="@color/primaryLight"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nav_app_title">
