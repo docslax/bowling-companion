@@ -12,7 +12,6 @@ import android.view.Window
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import ca.josephroque.bowlingcompanion.App
 import ca.josephroque.bowlingcompanion.R
 import ca.josephroque.bowlingcompanion.common.Android
 import ca.josephroque.bowlingcompanion.common.fragments.BaseDialogFragment

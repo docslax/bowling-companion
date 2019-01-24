@@ -6,7 +6,6 @@ import androidx.fragment.app.FragmentManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ca.josephroque.bowlingcompanion.App
 import ca.josephroque.bowlingcompanion.R
 import ca.josephroque.bowlingcompanion.common.fragments.BaseDialogFragment
 import ca.josephroque.bowlingcompanion.common.fragments.BaseFragment
