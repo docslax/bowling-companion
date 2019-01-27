@@ -58,15 +58,27 @@ android {
             }
         }
     }
+
+    sourceSets {
+        test {
+            java.srcDirs += "$projectDir/src/testShared"
+        }
+
+        androidTest {
+            java.srcDirs += "$projectDir/src/testShared"
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Kotlin dependences
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.2'
 
+    // Androidx + Material dependencies
     implementation 'com.google.android.material:material:1.1.0-alpha02'
-
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
     implementation 'androidx.browser:browser:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
@@ -76,18 +88,24 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0-alpha01'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0-alpha01'
 
+    // Third party libraries
     implementation 'com.ncapdevi:frag-nav:3.1.0' // https://github.com/ncapdevi/FragNav
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha' // https://github.com/PhilJay/MPAndroidChart
-
     implementation 'com.mixpanel.android:mixpanel-android:5.4.4' // https://github.com/mixpanel/mixpanel-android
 
+    // Admob support
     implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     implementation 'com.google.android.gms:play-services-ads:17.1.2'
 
+    // Test dependencies
     testImplementation 'junit:junit:4.12'
+    testImplementation 'androidx.test:core:1.1.0'
 
+    // Instrumentation test dependencies
+    androidTestImplementation 'androidx.test:core:1.1.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test:rules:1.1.1'
 }
 
 kotlin {
