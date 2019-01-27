@@ -35,6 +35,6 @@ script:
     # Ensure kotlin passes lint check
     - ./gradlew ktlint
     # Ensure the app builds
-    - ./gradlew assembleDebug
+    - ./gradlew assemble
     # Unit tests
     - ./gradlew test
