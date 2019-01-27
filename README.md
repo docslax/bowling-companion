@@ -26,6 +26,15 @@ Internet access - Allows the app to display ads. We do not ask for or store any 
 2. Import the project into Android Studio.
 3. Either provide a [Mixpanel](https://mixpanel.com) token in `app/src/debug/res/values/secrets/xml` or change `NavigationActivity.onCreate` to call `Analytics.disableTracking()` instead of `Analytics.initialize()`
 
+## How to contribute
+1. Find an open issue (preferably in the [most recent project](https://github.com/josephroqueca/bowling-companion/projects)
+2. Write the code + add tests
+3. Ensure all checks pass locally (`ktlint` and `test` will be run in CI):
+    - `./gradlew ktlint`
+    - `./gradlew test`
+    - `./gradlew connectedCheck`
+4. Open a PR and wait for a review
+
 ## Screenshots
 
 ### Screenshots from Version 3.0
