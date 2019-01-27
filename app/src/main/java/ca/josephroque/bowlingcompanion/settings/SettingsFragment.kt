@@ -113,27 +113,22 @@ class SettingsFragment : PreferenceFragmentCompat(),
     // MARK: Private function
 
     private fun sendBugReportEmail() {
-        activity?.let {
-            Email.sendEmail(
-                    it,
-                    resources.getString(R.string.bug_email_recipient),
-                    resources.getString(R.string.bug_email_subject),
-                    resources.getString(R.string.bug_email_body)
-            )
-        }
+        activity?.startActivity(Email.createEmailIntent(
+            prompt = resources.getString(R.string.send_email),
+            recipient = resources.getString(R.string.feedback_email_recipient),
+            subject = String.format(resources.getString(R.string.bug_email_subject), BuildConfig.VERSION_CODE),
+            body = resources.getString(R.string.bug_email_body)
+        ))
 
         Analytics.trackReportBug()
     }
 
     private fun sendFeedbackEmail() {
-        activity?.let {
-            Email.sendEmail(
-                    it,
-                    resources.getString(R.string.feedback_email_recipient),
-                    resources.getString(R.string.feedback_email_subject),
-                    null
-            )
-        }
+        activity?.startActivity(Email.createEmailIntent(
+            prompt = resources.getString(R.string.send_email),
+            recipient = resources.getString(R.string.feedback_email_recipient),
+            subject = String.format(resources.getString(R.string.feedback_email_subject), BuildConfig.VERSION_CODE)
+        ))
 
         Analytics.trackSendFeedback()
     }

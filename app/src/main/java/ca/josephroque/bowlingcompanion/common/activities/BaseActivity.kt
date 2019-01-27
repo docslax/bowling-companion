@@ -1,9 +1,9 @@
 package ca.josephroque.bowlingcompanion.common.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import ca.josephroque.bowlingcompanion.BuildConfig
 import ca.josephroque.bowlingcompanion.R
 import ca.josephroque.bowlingcompanion.settings.SettingsActivity
@@ -50,12 +50,11 @@ abstract class BaseActivity : AppCompatActivity() {
     // MARK: BaseActivity
 
     fun prepareFeedbackEmail() {
-        Email.sendEmail(
-                this,
-                resources.getString(R.string.feedback_email_recipient),
-                String.format(resources.getString(R.string.feedback_email_subject), BuildConfig.VERSION_CODE),
-                null
-        )
+        startActivity(Email.createEmailIntent(
+            prompt = resources.getString(R.string.send_email),
+            recipient = resources.getString(R.string.feedback_email_recipient),
+            subject = String.format(resources.getString(R.string.feedback_email_subject), BuildConfig.VERSION_CODE)
+        ))
 
         Analytics.trackSendFeedback()
     }

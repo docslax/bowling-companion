@@ -1,9 +1,7 @@
 package ca.josephroque.bowlingcompanion.utils
 
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import ca.josephroque.bowlingcompanion.R
 
 /**
  * Copyright (C) 2018 Joseph Roque
@@ -17,12 +15,12 @@ object Email {
     /**
      * Prompts user to send an email with the provided parameters.
      *
-     * @param activity context to send email from
+     * @param prompt prompt to display to indicate the purpose of the email
      * @param recipient email recipient
      * @param subject subject of the email
      * @param body body of the email
      */
-    fun sendEmail(activity: Activity, recipient: String?, subject: String?, body: String?) {
+    fun createEmailIntent(prompt: String, recipient: String?, subject: String? = null, body: String? = null): Intent {
         val intent = Intent(Intent.ACTION_SEND)
         intent.data = Uri.parse("mailto:")
         intent.type = "message/rfc822"
@@ -31,6 +29,6 @@ object Email {
         subject?.let { intent.putExtra(Intent.EXTRA_SUBJECT, it) }
         body?.let { intent.putExtra(Intent.EXTRA_TEXT, it) }
 
-        activity.startActivity(Intent.createChooser(intent, activity.resources.getString(R.string.send_email)))
+        return Intent.createChooser(intent, prompt)
     }
 }
