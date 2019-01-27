@@ -2,6 +2,7 @@ package ca.josephroque.bowlingcompanion.utils
 
 import android.content.Context
 import ca.josephroque.bowlingcompanion.R
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -55,8 +56,7 @@ object DateUtils {
      * @return a date object
      */
     fun seriesDateToDate(seriesDate: String): Date {
-        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CANADA)
-        return formatter.parse(seriesDate)
+        return seriesDateFormatter.parse(seriesDate)
     }
 
     /**
@@ -66,9 +66,10 @@ object DateUtils {
      * @return a string suitable for a series
      */
     fun dateToSeriesDate(date: Date): String {
-        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CANADA)
-        return formatter.format(date)
+        return seriesDateFormatter.format(date)
     }
+
+    private val seriesDateFormatter: DateFormat by lazy { SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CANADA) }
 
     /**
      * Converts [Date] to a cleaner format.
@@ -90,9 +91,10 @@ object DateUtils {
             return Strings.tomorrow
         }
 
-        val formatter = SimpleDateFormat("MMMM d, yyyy", Locale.CANADA)
-        return formatter.format(date)
+        return dateToPrettyFormatter.format(date)
     }
+
+    private val dateToPrettyFormatter: DateFormat by lazy { SimpleDateFormat("MMMM d, yyyy", Locale.CANADA) }
 
     /**
      * Converts [Date] to a shorter format.
@@ -101,9 +103,10 @@ object DateUtils {
      * @return shorter format of string with month and day
      */
     fun dateToShort(date: Date): String {
-        val formatter = SimpleDateFormat("MM/dd", Locale.CANADA)
-        return formatter.format(date)
+        return dateToShortFormatter.format(date)
     }
+
+    private val dateToShortFormatter: DateFormat by lazy { SimpleDateFormat("MM/dd", Locale.CANADA) }
 }
 
 // MARK: Convenience functions
