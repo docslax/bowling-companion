@@ -1,6 +1,8 @@
 language: android
 sudo: required
 jdk: oraclejdk8
+
+# Recommended cache configuration from https://docs.travis-ci.com/user/languages/android/
 before_cache:
     - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
     - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -9,22 +11,30 @@ cache:
         - $HOME/.gradle/caches/
         - $HOME/.gradle/wrapper/
         - $HOME/.android/build-cache
-env:
-    global:
-        - ANDROID_API=28
-        - ANDROID_BUILD_TOOLS=28.0.3
+
 android:
     components:
+        # Latest revisions
         - tools
         - platform-tools
-        - build-tools-$ANDROID_BUILD_TOOLS
-        - android-$ANDROID_API
         - extra
+
+        # BuildTools and SDK version used by project
+        - android-28
+        - build-tools-28.0.3
+
     licenses:
+        # Ensure licenses are accepted for latest revisions
         - 'android-sdk-license-.+'
         - 'google-gdk-license-.+'
 before_install:
+    # Accept licenses for android-28 as per https://stackoverflow.com/a/52954536/4896787
     - yes | sdkmanager "platforms;android-28"
+
 script:
+    # Ensure kotlin passes lint check
     - ./gradlew ktlint
-    - ./gradlew clean assembleDebug
+    # Ensure the app builds
+    - ./gradlew assembleDebug
+    # Unit tests
+    - ./gradlew test
